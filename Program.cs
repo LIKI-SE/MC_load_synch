@@ -1,13 +1,13 @@
 ﻿using System.IO;
 using System;
 
-string sourcePath= @"C:\Liv_Synch_loader\WorldA";
+string sourcePath= @"C:\Liv_Synch_Loader\SourcePath";
 
-string destinationPath = @"C:\Liv_Synch_loader\WorldB";
+string destinationPath = @"C:\Liv_Synch_Loader\DestinationPath";
 
 string cloudPath = @"C:\Users\livki\OneDrive\Liv_Synch_loader";
 
-Console.WriteLine("Hello, welcome to MC_load_synch");
+Console.WriteLine("Hello, welcome to Liv_Synch_Loader");
 
 while (true){
     Console.WriteLine(" ");
@@ -24,42 +24,68 @@ while (true){
     
     switch (Synch){
         case "A":
-        if (Directory.Exists(sourcePath) == true && Directory.Exists(destinationPath)){
-                DateTime dt  = Directory.GetCreationTime(sourcePath);
-                string[] files = Directory.GetFiles(sourcePath);
-                Console.WriteLine(sourcePath + "created at " + dt + " time");
-                foreach(string file in files){
-                    try{
-                        string filename = Path.GetFileName(file);
-                        string destination = Path.Combine(destinationPath, filename);
-                        DateTime dt_org  = File.GetLastWriteTimeUtc(file);
-                        DateTime dt_copy  = File.GetLastWriteTimeUtc(destination);
+            if (Directory.Exists(sourcePath) && Directory.Exists(destinationPath))
+            {
+                DateTime dt = Directory.GetCreationTime(sourcePath);
         
-                        if (File.Exists(destination) == false){
+                string[] files = Directory.GetFiles(
+                    sourcePath,
+                    "*",
+                    SearchOption.AllDirectories
+                );
+        
+                Console.WriteLine(sourcePath + " created at " + dt + " time");
+        
+                foreach (string file in files)
+                {
+                    try
+                    {
+                        string filename = Path.GetRelativePath(sourcePath, file);
+                        string destination = Path.Combine(destinationPath, filename);
+                        string destinationFolder = Path.GetDirectoryName(destination);
+                        DateTime dt_org = File.GetLastWriteTimeUtc(file);
+        
+                        if (!Directory.Exists(destinationFolder))
+                        {
+                            Directory.CreateDirectory(destinationFolder);
+                        }
+        
+                        if (!File.Exists(destination))
+                        {
                             File.Copy(file, destination);
                             Console.WriteLine("File copied: " + filename);
-                            
-                        } else if (dt_org != dt_copy) {
-                            Console.WriteLine("File out of synch: " + filename);
-                            File.Delete(destination);
-                            File.Copy(file, destination);
-        
-                        } else {
-                            Console.WriteLine("File skipped: " + filename);
                         }
-            
-         
+                        else
+                        {
+                            DateTime dt_copy = File.GetLastWriteTimeUtc(destination);
+        
+                            if (dt_org != dt_copy)
+                            {
+                                Console.WriteLine("File out of synch: " + filename);
+        
+                                File.Delete(destination);
+                                File.Copy(file, destination);
+                            }
+                            else
+                            {
+                                Console.WriteLine("File skipped: " + filename);
+                            }
+                        }
                     }
-              catch{
-                  string filename = Path.GetFileName(file);
-                  Console.WriteLine("This file had a copy issue: " + filename);
-              }      
+                    catch
+                    {
+                        string filename = Path.GetFileName(file);
+                        Console.WriteLine("This file had a copy issue: " + filename);
+                    }
+                }
             }
-        } else {
-            Directory.CreateDirectory(sourcePath);
-            Directory.CreateDirectory(destinationPath);
-        }
-        break;
+            else
+            {
+                Directory.CreateDirectory(sourcePath);
+                Directory.CreateDirectory(destinationPath);
+            }
+        
+            break;
         
         case "B":
         Console.WriteLine("What path do you source to be?");
