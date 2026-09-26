@@ -21,7 +21,7 @@ while (true){
     Console.WriteLine("Press C for automatic folder creation");
     Console.WriteLine("Press D for info of path locations");
     Console.WriteLine("Press E to swap synch direction");
-    Console.WriteLine("Press F to Cloud synchronization");
+    Console.WriteLine("Press F to cloud synchronization");
     Console.WriteLine("Press Q to exit program");
     
     string Synch = Console.ReadLine();
