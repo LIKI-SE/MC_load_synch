@@ -1,10 +1,11 @@
 ﻿using System.IO;
 using System;
 
+string worldPath = @"C:\MinecraftSyncTest\WorldA";
+
+string newPath = @"C:\MinecraftSyncTest\WorldB";
+
 while (true){
-    string worldPath = @"C:\MinecraftSyncTest\WorldA";
-    
-    string newPath = @"C:\MinecraftSyncTest\WorldB";
     
     Console.WriteLine("Hello, welcome to MC_load_synch");
     
