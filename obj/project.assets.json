@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Eksamensbevis\\Software Engineering\\Egne_Projekter\\MC_load_synch\\MC_load_synch.csproj",
-      "projectName": "MC_load_synch",
-      "projectPath": "C:\\Eksamensbevis\\Software Engineering\\Egne_Projekter\\MC_load_synch\\MC_load_synch.csproj",
+      "projectUniqueName": "C:\\Eksamensbevis\\Software Engineering\\Egne_Projekter\\Liv_Synch_Loader\\Liv_Synch_Loader.csproj",
+      "projectName": "Liv_Synch_Loader",
+      "projectPath": "C:\\Eksamensbevis\\Software Engineering\\Egne_Projekter\\Liv_Synch_Loader\\Liv_Synch_Loader.csproj",
       "packagesPath": "C:\\Users\\livki\\.nuget\\packages\\",
-      "outputPath": "C:\\Eksamensbevis\\Software Engineering\\Egne_Projekter\\MC_load_synch\\obj\\",
+      "outputPath": "C:\\Eksamensbevis\\Software Engineering\\Egne_Projekter\\Liv_Synch_Loader\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\livki\\AppData\\Roaming\\NuGet\\NuGet.Config"

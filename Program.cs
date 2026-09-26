@@ -7,6 +7,10 @@ string destinationPath = @"C:\Liv_Synch_Loader\DestinationPath";
 
 string cloudPath = @"C:\Users\livki\OneDrive\Liv_Synch_loader";
 
+string sourceCloudBackup = sourcePath;
+
+string destinationCloudBackup = destinationPath;
+
 Console.WriteLine("Hello, welcome to Liv_Synch_Loader");
 
 while (true){
@@ -122,10 +126,15 @@ while (true){
         case "F":
         Console.WriteLine("Transfer or Retrieve?");
         string Answer = Console.ReadLine();
+ 
         if (Answer == "Transfer"){
+            sourcePath = sourceCloudBackup;
             destinationPath = cloudPath;
             Console.WriteLine("Cloud transfer is enabled: " +  destinationPath);
         } else if (Answer == "Retrieve") {
+            Console.WriteLine("RETRIEVE SOURCE: " + sourcePath);
+            Console.WriteLine("RETRIEVE DESTINATION: " + destinationPath);
+            destinationPath = destinationCloudBackup;
             sourcePath = cloudPath;
             Console.WriteLine("Cloud retrival is enabled: " +  destinationPath); 
         } else {
