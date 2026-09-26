@@ -14,6 +14,7 @@ while (true){
     Console.WriteLine("Press B for changing source & destination path");
     Console.WriteLine("Press C for automatic folder creation");
     Console.WriteLine("Press D for info of path locations");
+    Console.WriteLine("Press E to swap synch direction");
     Console.WriteLine("Press Q to exit program");
     
     string Synch = Console.ReadLine();
@@ -72,6 +73,18 @@ while (true){
         case "D":
         Console.WriteLine("Current source path: " + sourcePath);
         Console.WriteLine("Current destination path: " + destinationPath);
+        break;
+        
+        case "E":
+        Console.WriteLine("Old order is from " + sourcePath + " to " + destinationPath);
+        string backupSource = sourcePath;
+        string backupDestination = destinationPath;
+        sourcePath = backupDestination;
+        destinationPath = backupSource;
+        
+        Console.WriteLine("Synch direction has reversed!");
+        Console.WriteLine("BackupSource is: " + backupSource + " while newSource is: " + sourcePath);
+        Console.WriteLine("BackupSource is: " + backupDestination + " while newSource is: " + destinationPath);
         break;
 
         case "Q":
