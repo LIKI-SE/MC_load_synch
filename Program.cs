@@ -1,9 +1,11 @@
 ﻿using System.IO;
 using System;
 
-string sourcePath= @"C:\MinecraftSync\WorldA";
+string sourcePath= @"C:\Liv_Synch_loader\WorldA";
 
-string destinationPath = @"C:\MinecraftSync\WorldB";
+string destinationPath = @"C:\Liv_Synch_loader\WorldB";
+
+string cloudPath = @"C:\Users\livki\OneDrive\Liv_Synch_loader";
 
 Console.WriteLine("Hello, welcome to MC_load_synch");
 
@@ -15,6 +17,7 @@ while (true){
     Console.WriteLine("Press C for automatic folder creation");
     Console.WriteLine("Press D for info of path locations");
     Console.WriteLine("Press E to swap synch direction");
+    Console.WriteLine("Press F to Cloud synchronization");
     Console.WriteLine("Press Q to exit program");
     
     string Synch = Console.ReadLine();
@@ -57,6 +60,7 @@ while (true){
             Directory.CreateDirectory(destinationPath);
         }
         break;
+        
         case "B":
         Console.WriteLine("What path do you source to be?");
         sourcePath = Console.ReadLine();
@@ -67,10 +71,11 @@ while (true){
         break;
     
         case "C":
-        sourcePath = @"C:\MinecraftSync\WorldA";
-        destinationPath = @"C:\MinecraftSync\WorldB";
+        sourcePath = @"C:\Liv_Synch_loader\WorldA";
+        destinationPath = @"C:\Liv_Synch_loader\WorldB";
         Console.WriteLine("Autocreated these paths: " + sourcePath + " & " + destinationPath);
         break;
+        
         case "D":
         Console.WriteLine("Current source path: " + sourcePath);
         Console.WriteLine("Current destination path: " + destinationPath);
@@ -86,6 +91,21 @@ while (true){
         Console.WriteLine("Synch direction has reversed!");
         Console.WriteLine("BackupSource is: " + backupSource + " while newSource is: " + sourcePath);
         Console.WriteLine("BackupSource is: " + backupDestination + " while newSource is: " + destinationPath);
+        break;
+
+        case "F":
+        Console.WriteLine("Transfer or Retrieve?");
+        string Answer = Console.ReadLine();
+        if (Answer == "Transfer"){
+            destinationPath = cloudPath;
+            Console.WriteLine("Cloud transfer is enabled: " +  destinationPath);
+        } else if (Answer == "Retrieve") {
+            sourcePath = cloudPath;
+            Console.WriteLine("Cloud retrival is enabled: " +  destinationPath); 
+        } else {
+            break;
+        }
+        
         break;
 
         case "Q":
