@@ -19,10 +19,13 @@ while (true){
     Console.WriteLine("Press A for synch A->B");
     Console.WriteLine("Press B for changing source & destination path");
     Console.WriteLine("Press C for automatic folder creation");
-    Console.WriteLine("Press D for info of path locations");
+    Console.WriteLine("Press D for custom path");
     Console.WriteLine("Press E to swap synch direction");
     Console.WriteLine("Press F to cloud synchronization");
     Console.WriteLine("Press Q to exit program");
+    Console.WriteLine(" ");
+    Console.WriteLine("Current source path: " + sourcePath);
+    Console.WriteLine("Current destination path: " + destinationPath);
     
     string Synch = Console.ReadLine();
     
@@ -107,8 +110,8 @@ while (true){
         break;
         
         case "D":
-        Console.WriteLine("Current source path: " + sourcePath);
-        Console.WriteLine("Current destination path: " + destinationPath);
+        sourcePath = @"C:\Eksamensbevis";
+        Console.WriteLine("Custom path enabled: " + sourcePath);
         break;
         
         case "E":
