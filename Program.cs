@@ -1,31 +1,33 @@
 ﻿using System.IO;
 using System;
 
-string worldPath = @"C:\MinecraftSync\WorldA";
+string sourcePath= @"C:\MinecraftSync\WorldA";
 
-string newPath = @"C:\MinecraftSync\WorldB";
+string destinationPath = @"C:\MinecraftSync\WorldB";
+
+Console.WriteLine("Hello, welcome to MC_load_synch");
 
 while (true){
-    
-    Console.WriteLine("Hello, welcome to MC_load_synch");
-    
+    Console.WriteLine(" ");
+
     Console.WriteLine("Press A for synch A->B");
-    Console.WriteLine("Press B for synch direction");
+    Console.WriteLine("Press B for changing source & destination path");
     Console.WriteLine("Press C for automatic folder creation");
+    Console.WriteLine("Press D for info of path locations");
     Console.WriteLine("Press Q to exit program");
     
     string Synch = Console.ReadLine();
     
     switch (Synch){
         case "A":
-        if (Directory.Exists(worldPath) == true && Directory.Exists(newPath)){
-                DateTime dt  = Directory.GetCreationTime(worldPath);
-                string[] files = Directory.GetFiles(worldPath);
-                Console.WriteLine(worldPath + "created at " + dt + " time");
+        if (Directory.Exists(sourcePath) == true && Directory.Exists(destinationPath)){
+                DateTime dt  = Directory.GetCreationTime(sourcePath);
+                string[] files = Directory.GetFiles(sourcePath);
+                Console.WriteLine(sourcePath + "created at " + dt + " time");
                 foreach(string file in files){
                     try{
                         string filename = Path.GetFileName(file);
-                        string destination = Path.Combine(newPath, filename);
+                        string destination = Path.Combine(destinationPath, filename);
                         DateTime dt_org  = File.GetLastWriteTimeUtc(file);
                         DateTime dt_copy  = File.GetLastWriteTimeUtc(destination);
         
@@ -50,22 +52,26 @@ while (true){
               }      
             }
         } else {
-            Directory.CreateDirectory(worldPath);
-            Directory.CreateDirectory(newPath);
+            Directory.CreateDirectory(sourcePath);
+            Directory.CreateDirectory(destinationPath);
         }
         break;
         case "B":
         Console.WriteLine("What path do you source to be?");
-        worldPath = Console.ReadLine();
-        Console.WriteLine("New source path is: " + worldPath);
+        sourcePath = Console.ReadLine();
+        Console.WriteLine("New source path is: " + sourcePath);
         Console.WriteLine("What path do you destination to be?");
-        newPath = Console.ReadLine();
-        Console.WriteLine("New desitnation path is: " + newPath);
+        destinationPath = Console.ReadLine();
+        Console.WriteLine("New desitnation path is: " + destinationPath);
         break;
     
         case "C":
-        worldPath = @"C:\MinecraftSync\WorldA";
-        newPath = @"C:\MinecraftSync\WorldB";
+        sourcePath = @"C:\MinecraftSync\WorldA";
+        destinationPath = @"C:\MinecraftSync\WorldB";
+        break;
+        case "D":
+        Console.WriteLine("Current source path: " + sourcePath);
+        Console.WriteLine("Current destination path: " + destinationPath);
         break;
 
         case "Q":
