@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System;
 
-string sourcePath= @"C:\Liv_Synch_Loader\SourcePath";
+string sourcePath = @"C:\Liv_Synch_Loader\SourcePath";
 
 string destinationPath = @"C:\Liv_Synch_Loader\DestinationPath";
 
