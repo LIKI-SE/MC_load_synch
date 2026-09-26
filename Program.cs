@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using System;
 
-string worldPath = @"C:\MinecraftSyncTest\WorldA";
+string worldPath = @"C:\MinecraftSync\WorldA";
 
-string newPath = @"C:\MinecraftSyncTest\WorldB";
+string newPath = @"C:\MinecraftSync\WorldB";
 
 while (true){
     
@@ -64,8 +64,8 @@ while (true){
         break;
     
         case "C":
-        worldPath = @"C:\MinecraftSyncTest\WorldA";
-        newPath = @"C:\MinecraftSyncTest\WorldB";
+        worldPath = @"C:\MinecraftSync\WorldA";
+        newPath = @"C:\MinecraftSync\WorldB";
         break;
 
         case "Q":
