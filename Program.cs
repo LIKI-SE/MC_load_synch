@@ -69,6 +69,7 @@ while (true){
         case "C":
         sourcePath = @"C:\MinecraftSync\WorldA";
         destinationPath = @"C:\MinecraftSync\WorldB";
+        Console.WriteLine("Autocreated these paths: " + sourcePath + " & " + destinationPath);
         break;
         case "D":
         Console.WriteLine("Current source path: " + sourcePath);

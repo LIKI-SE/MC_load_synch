@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MC_load_synch")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8aea135e69983296ba36e8fab825d0e990d03038")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+93a961f503792502199c97ae6189bcf3c03eaaee")]
 [assembly: System.Reflection.AssemblyProductAttribute("MC_load_synch")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MC_load_synch")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
